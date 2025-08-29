@@ -1,2 +1,2 @@
-# Cross-Fire
-For preparing and participating in programming contests, especially on Codeforces. Each folder targets specific algorithms or contest problems to enhance coding skills and algorithm understanding.
+# MooCoder
+helps in systematically organizing and reusing code for different programming contests.
