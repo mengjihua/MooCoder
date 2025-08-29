@@ -15,32 +15,13 @@ RD = getrandbits(31)
 def _max(a, b): return a if a > b else b
 def _min(a, b): return a if a < b else b
 
-print(log(10 ** 9, 3))
-MX = 20
-
 t = int(input())
 
-pow3 = [1] * (MX + 2)
-for i in range(1, MX + 2):
-    pow3[i] = pow3[i - 1] * 3
-
-cost = [0] * MX
-cost[0] = 3 
-for i in range(1, MX):
-    cost[i] = pow3[i + 1] + i * pow3[i - 1]
-
 def solve():
-    n = int(input())
-    num_digit = [0] * MX
-    for i in range(MX):
-        num_digit[i] = n % 3
-        n //= 3
-    res = 0
-    for i in range(MX):
-        res += num_digit[i] * cost[i]
-    return res
+    n, k = map(int, input().split())
+    
 
 ans = []
 for _ in range(t):
     ans.append(solve())
-print(*ans, sep='\n')
+print(*ans, sep="\n")

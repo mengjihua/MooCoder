@@ -7,22 +7,24 @@ from functools import cmp_to_key, lru_cache
 from math import gcd, sqrt, log, ceil, floor, inf
 from bisect import bisect_left, bisect_right
 from heapq import heappush, heappop, heapify, nsmallest, nlargest
-import sys
-sys.setrecursionlimit(10 ** 5 + 1)
+from sys import setrecursionlimit, stdin, stdout
+from random import getrandbits
+setrecursionlimit(5 * 10 ** 4 + 1)
+input = lambda: stdin.readline().rstrip()
+RD = getrandbits(31)
+def _max(a, b): return a if a > b else b
+def _min(a, b): return a if a < b else b
 
 t = int(input())
 
 def solve():
-    a, b, k = map(int, sys.stdin.readline().split())
-    g = gcd(a, b)
-    dx, dy = a // g, b // g
-    if dx <= k and dy <= k:
-        return 1
-    return 2
+    n, k = map(int, input().split())
+    if n % (k + 1) != 0:
+        return 'Blueberry'
+    else:
+        return 'Strawberry'
 
 ans = []
 for _ in range(t):
     ans.append(solve())
-
-for i in ans:
-    print(i)
+print(*ans, sep="\n")

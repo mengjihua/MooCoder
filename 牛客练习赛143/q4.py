@@ -8,23 +8,20 @@ from math import gcd, sqrt, log, ceil, floor, inf
 from bisect import bisect_left, bisect_right
 from heapq import heappush, heappop, heapify, nsmallest, nlargest
 from sys import setrecursionlimit, stdin, stdout
+from random import getrandbits
+setrecursionlimit(5 * 10 ** 4 + 1)
 input = lambda: stdin.readline().rstrip()
+RD = getrandbits(31)
 def _max(a, b): return a if a > b else b
 def _min(a, b): return a if a < b else b
 
 t = int(input())
 
 def solve():
-    n = int(input())
-    res = []
-    for i in range(1, n + 1):
-        if i % 2 == 1:
-            res.append(-1)
-        else:
-            res.append(2 if i == n else 3)
-    return ' '.join(map(str, res))
+    n, k = map(int, input().split())
+    
 
 ans = []
 for _ in range(t):
     ans.append(solve())
-print(*ans, sep='\n')
+print(*ans, sep="\n")

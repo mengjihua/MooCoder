@@ -7,15 +7,21 @@ from functools import cmp_to_key, lru_cache
 from math import gcd, sqrt, log, ceil, floor, inf
 from bisect import bisect_left, bisect_right
 from heapq import heappush, heappop, heapify, nsmallest, nlargest
-import sys
-sys.setrecursionlimit(10 ** 5 + 1)
+from sys import setrecursionlimit, stdin, stdout
+from random import getrandbits
+setrecursionlimit(5 * 10 ** 4 + 1)
+input = lambda: stdin.readline().rstrip()
+RD = getrandbits(31)
+def _max(a, b): return a if a > b else b
+def _min(a, b): return a if a < b else b
 
-n, m = map(int, input().split())
+t = int(input())
 
-def inv(x, mod):
-    return pow(x, mod - 2, mod)
-# print(5 * inv(18, 998244353) % 998244353)
+def solve():
+    n, k = map(int, input().split())
+    
 
-for i in range(n):
-    pass
-    l, r, p, q = map(int, input().split())
+ans = []
+for _ in range(t):
+    ans.append(solve())
+print(*ans, sep="\n")
