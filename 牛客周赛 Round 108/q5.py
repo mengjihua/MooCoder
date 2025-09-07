@@ -65,7 +65,6 @@ def solve():
                     continue
                 if cnt + 1 <= n:
                     dp[cnt + 1] = _min(dp[cnt + 1], dp[cnt] + t)
-        dp = dp
 
     for x in range(n, -1, -1):
         if dp[x] <= sm - (n - x):
