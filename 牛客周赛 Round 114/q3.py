@@ -16,11 +16,35 @@ def fmax(a, b): return a if a > b else b
 def fmin(a, b): return a if a < b else b
 def lcm(a, b): return a * b // gcd(a, b)
 
-t = 1
+t = int(input())
 
 def solve():
-    lst = list(map(int, input().split()))
-    return f'{lst.index(1) + 1} {lst.index(2) + 1} {lst.index(3) + 1}'
+    n = int(input())
+    s = input().strip()
+    
+    cnt = Counter(s)
+    
+    if not ('1' in cnt and '2' in cnt and '3' in cnt):
+        return -1
+    
+    res = inf
+    
+    for i in range(n - 2):
+        sub = s[i:i + 3]
+        sub_cnt = Counter(sub)
+        
+        cur = 0
+        if sub_cnt['1'] > 0:
+            cur += 1
+        if sub_cnt['2'] > 0:
+            cur += 1
+        if sub_cnt['3'] > 0:
+            cur += 1
+        
+        temp = 3 - cur
+        res = fmin(res, temp)
+    
+    return res if res != inf else -1
 
 ans = []
 for _ in range(t):

@@ -18,9 +18,29 @@ def lcm(a, b): return a * b // gcd(a, b)
 
 t = 1
 
+def judge(x):
+    s = str(x)
+    vis = set()
+    pre = ''
+    for ch in s:
+        if ch not in '123':
+            return False
+        if ch == pre:
+            return False
+        vis.add(ch)
+        pre = ch
+    return len(vis) == 3
+
 def solve():
-    lst = list(map(int, input().split()))
-    return f'{lst.index(1) + 1} {lst.index(2) + 1} {lst.index(3) + 1}'
+    n = int(input())
+    
+    mn, mx = 10 ** (n - 1), 10 ** n - 1
+    for i in range(mn, mx + 1):
+        for j in range(mn, i + 1):
+            if judge(i * j):
+                return f'{i} {j}'
+    
+    return -1
 
 ans = []
 for _ in range(t):

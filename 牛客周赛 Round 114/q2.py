@@ -19,8 +19,25 @@ def lcm(a, b): return a * b // gcd(a, b)
 t = 1
 
 def solve():
-    lst = list(map(int, input().split()))
-    return f'{lst.index(1) + 1} {lst.index(2) + 1} {lst.index(3) + 1}'
+    n = int(input())
+    s = input().strip()
+    
+    res = 0
+    for i in range(n):
+        cnt = [0, 0, 0]
+        for j in range(i, n):
+            c = s[j]
+            if c == '1':
+                cnt[0] += 1
+            elif c == '2':
+                cnt[1] += 1
+            elif c == '3':
+                cnt[2] += 1
+            
+            if cnt[0] == cnt[1] == cnt[2]:
+                    res += 1
+                    
+    return res
 
 ans = []
 for _ in range(t):

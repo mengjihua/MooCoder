@@ -16,11 +16,28 @@ def fmax(a, b): return a if a > b else b
 def fmin(a, b): return a if a < b else b
 def lcm(a, b): return a * b // gcd(a, b)
 
+MOD = 998244353
+
 t = 1
 
 def solve():
-    lst = list(map(int, input().split()))
-    return f'{lst.index(1) + 1} {lst.index(2) + 1} {lst.index(3) + 1}'
+    n = int(input())
+    a = list(map(int, input().split()))
+    
+    if n == 1:
+        return a[0]
+    if n == 2:
+        return fmax(a[0], a[1])
+    
+    dp = [0] * n
+    dp[0] = a[0]
+    dp[1] = fmax(a[0], a[1])
+    
+    for i in range(2, n):
+        dp[i] = fmax(dp[i - 1], dp[i - 2] + a[i])
+    
+    return dp[n - 1]
+    
 
 ans = []
 for _ in range(t):
