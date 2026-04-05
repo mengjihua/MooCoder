@@ -16,10 +16,20 @@ def fmax(a, b): return a if a > b else b
 def fmin(a, b): return a if a < b else b
 def lcm(a, b): return a * b // gcd(a, b)
 
-t = 1
+t = int(input())
 
 def solve():
-    pass
+    x, y = map(int, input().split())
+    x, y = fmax(x, y), fmin(x, y)
+    xx, yy = x, y
+    ans = x
+    while yy:
+        ans = fmax(ans, x ^ yy)
+        yy >>= 1
+    while xx:
+        ans = fmax(ans, y ^ xx)
+        xx >>= 1
+    return ans
 
 ans = []
 for _ in range(t):
